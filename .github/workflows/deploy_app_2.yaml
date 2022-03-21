@@ -15,4 +15,4 @@ jobs:
     uses: ./.github/workflows/reusable.yaml
     with:
       username: ${{ github.event.inputs.username }}
-      some_flag: ${{ github.event.inputs.some_flag }}
+      some_flag: ${{ github.event.inputs.some_flag == 'true'}}
