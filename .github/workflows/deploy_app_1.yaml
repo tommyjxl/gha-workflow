@@ -1,0 +1,9 @@
+name: Deploy app_1
+
+on: workflow_dispatch
+
+jobs:
+  call-workflow-passing-data:
+    uses: ./.github/workflows/reusable
+    with:
+      username: app_1_username
