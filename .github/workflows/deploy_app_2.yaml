@@ -1,6 +1,14 @@
 name: Deploy app_2
 
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+    inputs:
+      some_flag:
+        type: boolean
+        description: Some Flag
+      username:
+        type: string
+        description: Username
 
 jobs:
   call-workflow-passing-data:
