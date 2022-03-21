@@ -14,5 +14,5 @@ jobs:
   call-workflow-passing-data:
     uses: ./.github/workflows/reusable.yaml
     with:
-      username: app_2_username
-      some_flag: false
+      username: ${{ github.event.inputs.username }}
+      some_flag: ${{ github.event.inputs.some_flag }}
