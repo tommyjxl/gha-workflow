@@ -11,9 +11,10 @@ on:
         - demo_bq_access
         - menu_ranking_weighted_sum
         - competitor_data_mapping
+        - MY_SECRETS
 
 env:
-  ENVVAR: MY_SECRET
+  ENVVAR: ${{ github.event.inputs.appKey }}
 
 jobs:
   some-work:
