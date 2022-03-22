@@ -15,6 +15,7 @@ jobs:
       saKay: xyz
 
   call-workflow-passing-data:
+    needs: some-work
     uses: ./.github/workflows/reusable.yaml
     with:
       username: app_1_username
