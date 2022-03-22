@@ -29,7 +29,7 @@ jobs:
         echo "Service Account Key: ${{ github.event.inputs.appKey }}"
 
     outputs:
-      saKey: MY_SECRET
+      saKey: ${{ github.event.inputs.appKey }}
 
   call-workflow-passing-data:
     needs: some-work
