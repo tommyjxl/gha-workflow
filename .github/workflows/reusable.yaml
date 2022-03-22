@@ -11,10 +11,6 @@ on:
         required: true
         type: boolean
 
-    secrets:
-      token:
-        required: true
-
 env:
   ENVVAR: $(yq '.demo_bq_access.service_account_key' deploy_vars.yaml)
 
