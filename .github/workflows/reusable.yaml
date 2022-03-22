@@ -21,3 +21,9 @@ jobs:
           echo "--- Printing inputs ---"
           echo "${{ inputs.username }}"
           echo "${{ inputs.some_flag }}"
+
+      - name: Print secrets
+        run: |
+          echo "--- Printing secret ---"
+          echo "${{ secrets.MY_SECRET }}"
+
