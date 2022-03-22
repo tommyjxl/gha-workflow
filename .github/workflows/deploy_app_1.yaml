@@ -28,7 +28,7 @@ jobs:
         echo "Service Account Key: ${{env.ENVVAR}}"
 
     outputs:
-      saKey: '${{env.ENVVAR}}'
+      saKey: $(yq '.${{ github.event.inputs.appKey }}.service_account_key' deploy_vars.yaml)
 
   call-workflow-passing-data:
     needs: some-work
