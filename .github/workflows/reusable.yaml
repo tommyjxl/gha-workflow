@@ -16,7 +16,7 @@ on:
         type: string
 
     secrets:
-      token:
+      sec:
         required: true
 
 env:
@@ -39,5 +39,5 @@ jobs:
         with:
             version: '306.0.0'
             project_id: dhh---analytics-apac
-            service_account_key: ${{ inputs.token_key }}
+            service_account_key: ${{ secrets.sec[format('{0}' 'MY_SECRET')] }}
             export_default_credentials: true
