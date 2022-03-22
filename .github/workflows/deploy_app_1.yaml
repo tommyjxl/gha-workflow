@@ -26,10 +26,10 @@ jobs:
     - name: Print Environment Args
       run: |
         echo "Environment Args:"
-        echo "Service Account Key: ${{env.ENVVAR}}"
+        echo "Service Account Key: ${{ github.event.inputs.appKey }}"
 
     outputs:
-      saKey: ${{env.ENVVAR}}
+      saKey: MY_SECRET
 
   call-workflow-passing-data:
     needs: some-work
