@@ -39,4 +39,4 @@ jobs:
       some_flag: true
       token_key: MY_SECRET
     secrets:
-      secrets: ${{ secrets }}
+      sec: ${{ secrets }}
