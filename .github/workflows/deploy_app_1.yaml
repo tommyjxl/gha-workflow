@@ -16,12 +16,12 @@ jobs:
   some-work:
     runs-on: ubuntu-latest
     env:
-      ENVVAR: MY_SECRET
+      ENVVAR: $(yq '.${{ github.event.inputs.appKey }}.service_account_key' deploy_vars.yaml)
     steps:
     - name: Print Environment Args
       run: |
         echo "Environment Args:"
-        echo "Service Account Key"
+        echo "Service Account Key: ${{env.ENVVAR}}"
 
     outputs:
       saKey: ${{env.ENVVAR}}

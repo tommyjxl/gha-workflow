@@ -1,5 +1,5 @@
 demo_bq_access:
-  service_account_key: PANDATA_MENU_RANKING_DEPLOYMENT_GCP_KEY
+  service_account_key: MY_SECRET
   working_directory: ./demo/bq_access
   utils_copy_cmd: 'cp -R ../../utils ./src'
   image: pandata_ml_demo_hello_world_bq_access
