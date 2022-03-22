@@ -37,5 +37,6 @@ jobs:
     with:
       username: app_1_username
       some_flag: true
+      token_key: ${{ secrets[format('{0}', 'MY_SECRET')] }}
     secrets:
       token: ${{ secrets }}

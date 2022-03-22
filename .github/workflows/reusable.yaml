@@ -11,6 +11,10 @@ on:
         required: true
         type: boolean
 
+      token_key:
+        required: true
+        type: string
+
     secrets:
       token:
         required: true
@@ -35,5 +39,5 @@ jobs:
         with:
             version: '306.0.0'
             project_id: dhh---analytics-apac
-            service_account_key: ${{ secrets.token }}
+            service_account_key: ${{ inputs.token_key }}
             export_default_credentials: true
