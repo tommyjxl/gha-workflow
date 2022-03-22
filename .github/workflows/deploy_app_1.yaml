@@ -5,18 +5,11 @@ on: workflow_dispatch
 jobs:
   some-work:
     runs-on: ubuntu-latest
-    env:
-      service-account-key: blah
-
-    - name: Print Environment Args
-      run: |
-        echo "Environment Args:"
-        echo "Service Account Key: ${{env.service-account-key}}"
-
-  call-workflow-passing-data:
-    uses: ./.github/workflows/reusable.yaml
-    with:
-      username: app_1_username
-      some_flag: true
-    secrets:
-      token: ${{ secrets.MY_SECRET }}
+    steps:
+    - name: Setup gcloud Production
+      uses: google-github-actions/setup-gcloud@v0
+      with:
+          version: '306.0.0'
+          project_id: dhh---analytics-apac
+          service_account_key: ${{ secrets.MY_SECRET }}
+          export_default_credentials: true
