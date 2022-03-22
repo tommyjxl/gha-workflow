@@ -14,7 +14,7 @@ on:
         - MY_SECRETS
 
 env:
-  ENVVAR: ${{ github.event.inputs.appKey }}
+  ENVVAR: $(yq '.${{ github.event.inputs.appKey }}.service_account_key' deploy_vars.yaml)
 
 jobs:
   some-work:
@@ -26,10 +26,10 @@ jobs:
     - name: Print Environment Args
       run: |
         echo "Environment Args:"
-        echo "Service Account Key: ${{ github.event.inputs.appKey }}"
+        echo "Service Account Key: ${{ env.ENVVAR }}"
 
     outputs:
-      saKey: ${{ github.event.inputs.appKey }}
+      saKey: ${{ env.ENVVAR }}
 
   call-workflow-passing-data:
     needs: some-work
@@ -38,4 +38,4 @@ jobs:
       username: app_1_username
       some_flag: true
     secrets:
-      token: ${{ secrets[format('{0}', $(yq '.${{ github.event.inputs.appKey }}.service_account_key' deploy_vars.yaml))] }}
+      token: ${{ secrets[format('{0}', env.ENVVAR)] }}
