@@ -12,7 +12,7 @@ jobs:
         echo "Service Account Key"
 
     outputs:
-      saKay: xyz
+      saKey: MY_SECRET
 
   call-workflow-passing-data:
     needs: some-work
@@ -21,4 +21,4 @@ jobs:
       username: app_1_username
       some_flag: true
     secrets:
-      token: ${{ secrets.MY_SECRET }}
+      token: ${{ secrets[format('{0}', needs.some-work.outputs.saKey)] }}
