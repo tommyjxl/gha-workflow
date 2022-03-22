@@ -28,14 +28,13 @@ jobs:
 
       - name: Print secrets
         run: |
-          echo "--- Printing secret ---"
-          echo $MY_SECRET
-          echo "---done"
+          echo "secret:"
+          echo ${{ secrets.token }}
 
       - name: Setup gcloud Production
         uses: google-github-actions/setup-gcloud@v0
         with:
             version: '306.0.0'
             project_id: dhh---analytics-apac
-            service_account_key: ${{ secrets.MY_SECRET }}
+            service_account_key: ${{ secrets.token }}
             export_default_credentials: true
