@@ -22,7 +22,6 @@ jobs:
     - name: Checkout pandata
       uses: actions/checkout@v2
       
-    steps:
     - name: Print Environment Args
       run: |
         echo "Environment Args:"
