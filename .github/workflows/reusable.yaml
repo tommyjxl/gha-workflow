@@ -26,11 +26,6 @@ jobs:
           echo "${{ inputs.username }}"
           echo "${{ inputs.some_flag }}"
 
-      - name: Print secrets
-        run: |
-          echo "secret:"
-          echo ${{ secrets.token }}
-
       - name: Setup gcloud Production
         uses: google-github-actions/setup-gcloud@v0
         with:
