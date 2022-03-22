@@ -11,6 +11,10 @@ on:
         required: true
         type: boolean
 
+    secrets:
+      token:
+        required: true
+
 env:
   ENVVAR: $(yq '.demo_bq_access.service_account_key' deploy_vars.yaml)
 
@@ -31,5 +35,5 @@ jobs:
         with:
             version: '306.0.0'
             project_id: dhh---analytics-apac
-            service_account_key: ${{ secrets.MY_SECRET }}
+            service_account_key: ${{ secrets.token }}
             export_default_credentials: true
