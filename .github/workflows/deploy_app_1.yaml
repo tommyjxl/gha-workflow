@@ -12,12 +12,12 @@ on:
         - menu_ranking_weighted_sum
         - competitor_data_mapping
 
+env:
+  ENVVAR: MY_SECRET
+
 jobs:
   some-work:
     runs-on: ubuntu-latest
-    env:
-      ENVVAR: $(yq '.${{ github.event.inputs.appKey }}.service_account_key' deploy_vars.yaml)
-
     steps:
     - name: Checkout pandata
       uses: actions/checkout@v2
@@ -31,12 +31,10 @@ jobs:
       saKey: ${{env.ENVVAR}}
 
   call-workflow-passing-data:
-    steps:
-      - name: Call
-      needs: some-work
-      uses: ./.github/workflows/reusable.yaml
-      with:
-        username: app_1_username
-        some_flag: true
-      secrets:
-        token: ${{ secrets[format('{0}', 'MY_SECRET')] }}
+    needs: some-work
+    uses: ./.github/workflows/reusable.yaml
+    with:
+      username: app_1_username
+      some_flag: true
+    secrets:
+      token: ${{ secrets[format('{0}', env.ENVVAR)] }}
