@@ -13,3 +13,11 @@ jobs:
           project_id: dhh---analytics-apac
           service_account_key: ${{ secrets.MY_SECRET }}
           export_default_credentials: true
+
+  call-workflow-passing-data:
+    uses: ./.github/workflows/reusable.yaml
+    with:
+      username: app_1_username
+      some_flag: true
+    secrets:
+      token: ${{ secrets.MY_SECRET }}
