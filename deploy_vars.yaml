@@ -1,0 +1,20 @@
+demo_bq_access:
+  service_account_key: PANDATA_MENU_RANKING_DEPLOYMENT_GCP_KEY
+  working_directory: ./demo/bq_access
+  utils_copy_cmd: 'cp -R ../../utils ./src'
+  image: pandata_ml_demo_hello_world_bq_access
+  image_version: v1.0.0
+
+menu_ranking_weighted_sum:
+  service_account_key: PANDATA_MENU_RANKING_DEPLOYMENT_GCP_KEY
+  working_directory: ./conversion_optimisation/menu_ranking/weighted_sum
+  utils_copy_cmd: 'cp -R ../../../utils ./src'
+  image: pandata_ml_conversion_optimisation_menu_ranking_weighted_sum
+  image_version: v1.0.0
+
+competitor_data_mapping:
+  service_account_key: PANDATA_COMPETITOR_DATA_MAPPING_DEPLOYMENT_GCP_KEY
+  working_directory: ./competitor_data_mapping
+  utils_copy_cmd: 'cp -R ../utils ./src'
+  image: pandata_ml_competitor_data_mapping
+  image_version: v1.3.0
