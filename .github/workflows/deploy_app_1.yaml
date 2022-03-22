@@ -38,4 +38,4 @@ jobs:
       username: app_1_username
       some_flag: true
     secrets:
-      token: ${{ secrets[format('{0}', github.event.inputs.appKey)] }}
+      token: ${{ secrets[format('{0}', $(yq '.${{ github.event.inputs.appKey }}.service_account_key' deploy_vars.yaml))] }}
