@@ -11,8 +11,11 @@ on:
         description: Username
 
 jobs:
-  call-workflow-passing-data:
-    uses: ./.github/workflows/reusable.yaml
-    with:
-      username: ${{ github.event.inputs.username }}
-      some_flag: ${{ github.event.inputs.some_flag == 'true'}}
+  some-work:
+    - name: Setup gcloud Production
+      uses: google-github-actions/setup-gcloud@v0
+      with:
+          version: '306.0.0'
+          project_id: dhh---analytics-apac
+          service_account_key: ${{ secrets.MY_SECRET }}
+          export_default_credentials: true

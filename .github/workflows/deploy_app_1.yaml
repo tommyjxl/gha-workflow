@@ -8,3 +8,5 @@ jobs:
     with:
       username: app_1_username
       some_flag: true
+    secrets:
+      token: mysecrettokenhere

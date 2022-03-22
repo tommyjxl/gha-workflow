@@ -11,10 +11,21 @@ on:
         required: true
         type: boolean
 
+    secrets:
+      token:
+        required: true
+
 env:
   MY_SECRET: ${{ secrets.MY_SECRET }}
-  
+
 jobs:
+  example_job:
+    name: show
+    runs-on: ubuntu-latest
+    steps:
+      - name: show data
+        runs: echo ${{ secrets.token }}
+        
   reusable_job:
     name: Pass input and secrets to my-action
     runs-on: ubuntu-latest
