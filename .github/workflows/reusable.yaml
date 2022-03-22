@@ -15,10 +15,14 @@ on:
       token:
         required: true
 
+env:
+  ENVVAR: $(yq '.demo_bq_access.service_account_key' deploy_vars.yaml)
+
 jobs:
   reusable_job:
     name: Pass input and secrets to my-action
     runs-on: ubuntu-latest
+
     steps:
       - name: Print inputs
         run: |
@@ -31,5 +35,5 @@ jobs:
         with:
             version: '306.0.0'
             project_id: dhh---analytics-apac
-            service_account_key: ${{ secrets.token }}
+            service_account_key: ${{ secrets[format('{0}', env.ENVVAR)] }}
             export_default_credentials: true
