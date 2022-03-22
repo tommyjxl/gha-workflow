@@ -17,7 +17,11 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ENVVAR: $(yq '.${{ github.event.inputs.appKey }}.service_account_key' deploy_vars.yaml)
+
     steps:
+    - name: Checkout pandata
+      uses: actions/checkout@v2
+
     - name: Print Environment Args
       run: |
         echo "Environment Args:"
