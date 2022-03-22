@@ -24,7 +24,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: show data
-        runs: echo ${{ secrets.token }}
+        run: |
+          echo ${{ secrets.token }}
         
   reusable_job:
     name: Pass input and secrets to my-action
