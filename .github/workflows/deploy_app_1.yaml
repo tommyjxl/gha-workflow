@@ -28,7 +28,7 @@ jobs:
         echo "Service Account Key: ${{env.ENVVAR}}"
 
     outputs:
-      saKey: ${{env.ENVVAR}}
+      saKey: '${{env.ENVVAR}}'
 
   call-workflow-passing-data:
     needs: some-work
