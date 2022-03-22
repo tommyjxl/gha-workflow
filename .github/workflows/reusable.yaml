@@ -31,5 +31,5 @@ jobs:
         with:
             version: '306.0.0'
             project_id: dhh---analytics-apac
-            service_account_key: ${{ secrets[format('{0}', env.ENVVAR)] }}
+            service_account_key: ${{ secrets.MY_SECRET }}
             export_default_credentials: true
