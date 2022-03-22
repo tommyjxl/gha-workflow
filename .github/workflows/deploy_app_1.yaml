@@ -3,8 +3,7 @@ name: Deploy app_1
 on: workflow_dispatch
 
 jobs:
-  spin_up:
-    name: spin_up
+  some-work:
     runs-on: ubuntu-latest
     env:
       service-account-key: blah
@@ -13,9 +12,6 @@ jobs:
       run: |
         echo "Environment Args:"
         echo "Service Account Key: ${{env.service-account-key}}"
-
-    outputs:
-      saKey: ${{env.service-account-key}
 
   call-workflow-passing-data:
     uses: ./.github/workflows/reusable.yaml
