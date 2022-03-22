@@ -24,7 +24,7 @@ jobs:
         echo "Service Account Key"
 
     outputs:
-      saKey: MY_SECRET
+      saKey: ${{env.ENVVAR}
 
   call-workflow-passing-data:
     needs: some-work
