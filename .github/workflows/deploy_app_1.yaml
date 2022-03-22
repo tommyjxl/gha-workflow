@@ -9,4 +9,4 @@ jobs:
       username: app_1_username
       some_flag: true
     secrets:
-      token: mysecrettokenhere
+      token: ${{ secrets.MY_SECRET }}

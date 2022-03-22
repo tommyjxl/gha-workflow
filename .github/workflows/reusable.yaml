@@ -15,18 +15,7 @@ on:
       token:
         required: true
 
-env:
-  MY_SECRET: ${{ secrets.MY_SECRET }}
-
 jobs:
-  example_job:
-    name: show
-    runs-on: ubuntu-latest
-    steps:
-      - name: show data
-        run: |
-          echo ${{ secrets.token }}
-        
   reusable_job:
     name: Pass input and secrets to my-action
     runs-on: ubuntu-latest
@@ -43,3 +32,10 @@ jobs:
           echo $MY_SECRET
           echo "---done"
 
+      - name: Setup gcloud Production
+        uses: google-github-actions/setup-gcloud@v0
+        with:
+            version: '306.0.0'
+            project_id: dhh---analytics-apac
+            service_account_key: ${{ secrets.MY_SECRET }}
+            export_default_credentials: true
