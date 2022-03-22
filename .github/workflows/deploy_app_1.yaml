@@ -1,23 +1,13 @@
 name: Deploy app_1
 
-on:
-  workflow_dispatch:
-    inputs:
-      appKey:
-        type: choice
-        description: 'Which app? (https://github.com/deliveryhero/pandata-ml-env/blob/master/deploy_vars.yaml)'
-        required: true
-        options:
-        - demo_bq_access
-        - menu_ranking_weighted_sum
-        - competitor_data_mapping
+on: workflow_dispatch
 
 jobs:
   some-work:
     runs-on: ubuntu-latest
     steps:
     env:
-      service-account-key: $(yq '.${{ inputs.appKey }}.service_account_key' deploy_vars.yaml)
+      service-account-key: MY_SECRET
 
     - name: Print Environment Args
       run: |
