@@ -12,6 +12,7 @@ on:
 
 jobs:
   some-work:
+    runs-on: ubuntu-latest
     - name: Setup gcloud Production
       uses: google-github-actions/setup-gcloud@v0
       with:
