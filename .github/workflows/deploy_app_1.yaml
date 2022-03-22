@@ -38,4 +38,4 @@ jobs:
       username: app_1_username
       some_flag: true
     secrets:
-      token: ${{ secrets[format('{0}', env.ENVVAR)] }}
+      token: ${{ env.ENVVAR }}
