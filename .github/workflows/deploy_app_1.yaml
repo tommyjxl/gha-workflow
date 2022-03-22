@@ -15,8 +15,9 @@ on:
 jobs:
   some-work:
     runs-on: ubuntu-latest
+    env:
+      ENVVAR: MY_SECRET
     steps:
-
     - name: Print Environment Args
       run: |
         echo "Environment Args:"
