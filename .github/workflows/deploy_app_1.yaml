@@ -6,13 +6,13 @@ jobs:
   some-work:
     runs-on: ubuntu-latest
     steps:
-    - name: Setup gcloud Production
-      uses: google-github-actions/setup-gcloud@v0
-      with:
-          version: '306.0.0'
-          project_id: dhh---analytics-apac
-          service_account_key: ${{ secrets.MY_SECRET }}
-          export_default_credentials: true
+    - name: Print Environment Args
+      run: |
+        echo "Environment Args:"
+        echo "Service Account Key"
+
+    outputs:
+      saKay: xyz
 
   call-workflow-passing-data:
     uses: ./.github/workflows/reusable.yaml
